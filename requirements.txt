@@ -1,0 +1,4 @@
+click
+ipykernel
+jupyter
+sh

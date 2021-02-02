@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import sh
 import sys
 import click
@@ -52,13 +53,13 @@ def jupyter_cli(args=[]):
       '--name', 'python-sane',
       '--display-name', 'Python (sane)',
       '--env', 'PYTHONPATH', ':'.join(sys.path),
-      _env={'HOME': tmpdir},
+      _env=dict(os.environ, HOME=tmpdir),
     )
     handle_interrupt(
       jupyter,
       command,
       *args,
-      _env={'HOME': tmpdir},
+      _env=dict(os.environ, HOME=tmpdir),
     )
 
 if __name__ == '__main__':
